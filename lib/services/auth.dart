@@ -39,7 +39,7 @@ class AuthService {
           email: email, password: password);
       FirebaseUser user = result.user;
       await DatabaseCollectionService(uid: user.uid)
-          .updateUserData("0", "New Crew Member", 100);
+          .updateUserData("New Crew Member", "0", 100);
       return _userFromFirebase(user);
     } catch (e) {
       print(e.toString());
