@@ -12,7 +12,7 @@ class BrewTile extends StatelessWidget {
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor: Colors.brown[brew.strength],
+            backgroundColor: Colors.brown[brew.strength.round()],
           ),
           title: Text(brew.name),
           subtitle: Text("Takes ${brew.sugars} sugar(s)"),

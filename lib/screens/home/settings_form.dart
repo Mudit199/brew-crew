@@ -16,7 +16,7 @@ class _SettingsFormState extends State<SettingsForm> {
 
   String _currentName;
   String _currentSugars;
-  int _currentStrength;
+  double _currentStrength;
 
   @override
   Widget build(BuildContext context) {
@@ -54,16 +54,15 @@ class _SettingsFormState extends State<SettingsForm> {
                     onChanged: (val) => setState(() => _currentSugars = val),
                   ),
                   Slider(
-                    value: (_currentStrength ?? userData.strength).toDouble(),
-                    activeColor:
-                        Colors.brown[_currentStrength ?? userData.strength],
-                    inactiveColor:
-                        Colors.brown[_currentStrength ?? userData.strength],
+                    value: (_currentStrength ?? userData.strength),
+                    activeColor: Colors
+                        .brown[_currentStrength ?? userData.strength.round()],
+                    inactiveColor: Colors
+                        .brown[_currentStrength ?? userData.strength.round()],
                     min: 100.0,
                     max: 900.0,
                     divisions: 8,
-                    onChanged: (val) =>
-                        setState(() => _currentStrength = val.round()),
+                    onChanged: (val) => setState(() => _currentStrength = val),
                   ),
                   SizedBox(height: 20.0),
                   RaisedButton(
